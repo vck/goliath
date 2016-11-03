@@ -3,6 +3,6 @@ python:
     - "2.7"
 
 command:
-    pip install pytest
+    pip install -r requirements.txt
 
 script: pytest
