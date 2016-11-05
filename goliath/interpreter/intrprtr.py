@@ -27,32 +27,7 @@ def symbol_feeder(content):
     return (symbols, parsed_content)
 
 
-def markpreter(symbol):
-    """interpreter for known markdown tags
-    to html tag
-    """
-    if symbol_feeder(symbol):
-        # tag and content, ignore the content
-        symbol_target = symbol_feeder(symbol)
-        tag = symbol_target.keys()[0]
-        content = symbol_target.values()[0]
-
-        if tag is "#":
-            html_tag = html["header1"]
-        elif tag is "##":
-            html_tag = html["header2"]
-        elif tag is "###":
-            html_tag = html["header3"]
-        elif tag is "####":
-            html_tag = html["header4"]
-        elif tag is "#####":
-            html_tag = html["header5"]
-        elif tag is "######":
-            html_tag = html["header6"]
-        return html_tag.format(symbol_target.values()[0])
-
-
-def markpreterx(content):
+def markpreter(content):
     if symbol_feeder(content):
         # check if no errors occur
         symbol_target = symbol_feeder(content)
@@ -75,10 +50,10 @@ def markpreterx(content):
 
 
 def runtest():
-    test = ["#h1", "##2", "###3", "####4"]
+    test = ["#h1", "##2", "###3", "####4", "#!@!@!", "#!@@#!"]
 
     for tag in test:
-        print tag, " --> ", markpreterx(tag)
+        print tag, " --> ", markpreter(tag)
 
 
 if __name__ == '__main__':
