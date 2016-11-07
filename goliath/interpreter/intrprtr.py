@@ -33,19 +33,18 @@ def markpreter(content):
         symbol_target = symbol_feeder(content)
         tag = symbol_target[0]
         content = symbol_target[1]
-        if "#" in tag:
-            if len(tag) is 1:
-                html_tag = html["header1"]
-            elif len(tag) is 2:
-                html_tag = html["header2"]
-            elif len(tag) is 3:
-                html_tag = html["header3"]
-            elif len(tag) is 4:
-                html_tag = html["header4"]
-            elif len(tag) is 5:
-                html_tag = html["header5"]
-            elif len(tag) is 6:
-                html_tag = html["header6"]
+        if "#" in tag and len(tag) is 1:
+            html_tag = html["header1"]
+        elif "#" in tag and  len(tag) is 2:
+            html_tag = html["header2"]
+        elif "#" in tag and  len(tag) is 3:
+            html_tag = html["header3"]
+        elif "#" in tag and len(tag) is 4:
+            html_tag = html["header4"]
+        elif "#" in tag and  len(tag) is 5:
+            html_tag = html["header5"]
+        elif "#" in tag and  len(tag) is 6:
+            html_tag = html["header6"]
         return html_tag.format(content)
 
 
